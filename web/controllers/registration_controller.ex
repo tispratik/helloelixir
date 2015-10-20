@@ -15,6 +15,7 @@ defmodule Myapp.RegistrationController do
     if changeset.valid? do
       user = Myapp.Registration.create(changeset, Myapp.Repo)
       conn
+      # |> put_session(:current_user, user.id)
       |> put_flash(:info, "Your account was created")
       |> redirect(to: "/")
     else
