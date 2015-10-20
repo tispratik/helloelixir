@@ -18,6 +18,8 @@ defmodule Myapp.Router do
 
     get "/", PageController, :index
 
+    resources "/posts", PostController
+
     get  "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
   end

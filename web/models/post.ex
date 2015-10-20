@@ -1,16 +1,14 @@
-defmodule Myapp.User do
+defmodule Myapp.Post do
   use Myapp.Web, :model
 
-  schema "users" do
-    field :name, :string
-    field :email, :string
-    field :crypted_passwd, :string
-    field :passwd, :string, virtual: true
+  schema "posts" do
+    field :title, :string
+    field :body, :string
 
     timestamps
   end
 
-  @required_fields ~w(email passwd)
+  @required_fields ~w(title body)
   @optional_fields ~w()
 
   @doc """
@@ -22,8 +20,5 @@ defmodule Myapp.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> unique_constraint(:email)
-    |> validate_format(:email, ~r/@/)
-    |> validate_length(:passwd, min: 5)
   end
 end

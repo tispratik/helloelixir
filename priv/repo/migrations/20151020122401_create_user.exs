@@ -5,7 +5,7 @@ defmodule Myapp.Repo.Migrations.CreateUser do
     create table(:users) do
       add :name, :string
       add :email, :string
-      add :crypted_pwd, :string
+      add :crypted_passwd, :string
 
       timestamps
     end
