@@ -11,17 +11,14 @@ defmodule Myapp.RegistrationController do
 
   def create(conn, %{"user" => user_params}) do
     changeset = User.changeset(%User{}, user_params)
-
-    if changeset.valid? do
-      user = Myapp.Registration.create(changeset, Myapp.Repo)
-      conn
-      # |> put_session(:current_user, user.id)
-      |> put_flash(:info, "Your account was created")
-      |> redirect(to: "/")
-    else
-      conn
-      |> put_flash(:info, "Unable to create account")
-      |> render("new.html", changeset: changeset)
+    case  Repo.insert changeset do
+      {:ok, changeset} ->
+        conn
+        |> put_flash(:info, "Your account was created")
+        |> redirect(to: "/")
+      {:error, changeset} ->
+        conn
+        |> render("new.html", changeset: changeset)
     end
   end
 end
