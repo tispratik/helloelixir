@@ -1,5 +1,6 @@
 defmodule Myapp.Session do
   alias Myapp.User
+  use Myapp.Web, :controller
 
   def login(params, repo) do
     user = repo.get_by(User, email: String.downcase(params["email"]))
