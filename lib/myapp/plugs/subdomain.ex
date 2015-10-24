@@ -1,5 +1,7 @@
 defmodule Myapp.Plug.Subdomain do
   import Plug.Conn
+  import Ecto.Query
+  alias Myapp.Post
 
   @doc false
   def init(default), do: default
@@ -8,6 +10,7 @@ defmodule Myapp.Plug.Subdomain do
   def call(conn, router) do
     case get_subdomain(conn.host) do
       subdomain when byte_size(subdomain) > 0 ->
+        post = Myapp.Repo.get!(Post, 1)
         conn
         |> put_private(:subdomain, subdomain)
         |> router.call(router.init({}))
