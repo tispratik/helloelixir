@@ -11,7 +11,9 @@ defmodule Myapp.RegistrationController do
 
   def create(conn, %{"user" => user_params}) do
     changeset = User.changeset(%User{}, user_params)
-    case  Repo.insert changeset do
+    pwd = Map.get(user_params, "passwd")
+    changeset = Ecto.Changeset.put_change(changeset, :crypted_passwd, Comeonin.Bcrypt.hashpwsalt(pwd))
+    case Repo.insert changeset do
       {:ok, changeset} ->
         conn
         |> put_flash(:info, "Your account was created")
