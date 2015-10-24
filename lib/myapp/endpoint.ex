@@ -35,5 +35,6 @@ defmodule Myapp.Endpoint do
     key: "_myapp_key",
     signing_salt: "kbDZf9jg"
 
+  plug Myapp.Plug.Subdomain, Myapp.SubdomainRouter
   plug Myapp.Router
 end

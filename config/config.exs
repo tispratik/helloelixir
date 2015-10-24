@@ -7,7 +7,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :myapp, Myapp.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "daycayr.dev"],
   root: Path.dirname(__DIR__),
   secret_key_base: "ZPA3Z20cc/Rcr/X1RV//TMagRAr7nHeV/TyRH0ZGmehL/uoC1spXOe5H3j9kaY16",
   render_errors: [accepts: ~w(html json)],
