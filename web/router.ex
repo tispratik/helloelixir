@@ -1,6 +1,9 @@
 defmodule Myapp.Router do
   use Myapp.Web, :router
 
+  use ExAdmin.Router
+  admin_routes :admin
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session

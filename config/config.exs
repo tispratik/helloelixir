@@ -32,3 +32,14 @@ config :phoenix, :generators,
   binary_id: false
 
 config :phoenix, :filter_parameters, ["passwd", "passwd_confirmation"]
+
+config :xain, :quote, "'"
+config :xain, :after_callback, &Phoenix.HTML.raw/1
+
+config :ex_admin,
+  repo: Myapp.Repo,
+  module: Myapp,
+  modules: [
+    Myapp.ExAdmin.Dashboard,
+    Myapp.ExAdmin.User
+  ]

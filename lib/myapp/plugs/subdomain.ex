@@ -9,8 +9,9 @@ defmodule Myapp.Plug.Subdomain do
   @doc false
   def call(conn, router) do
     case get_subdomain(conn.host) do
+      "localhost" -> conn
       subdomain when byte_size(subdomain) > 0 ->
-        post = Myapp.Repo.get!(Post, 1)
+        # post = Myapp.Repo.get!(Post, 1)
         conn
         |> put_private(:subdomain, subdomain)
         |> router.call(router.init({}))
