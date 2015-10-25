@@ -16,6 +16,7 @@ defmodule Myapp.RegistrationController do
       {:ok, changeset} ->
         conn
         |> put_flash(:info, "Your account was created")
+        |> put_session(:current_user, changeset)
         |> redirect(to: "/")
       {:error, changeset} ->
         conn

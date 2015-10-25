@@ -25,8 +25,7 @@ defmodule Myapp.User do
     |> cast(params, @required_fields, @optional_fields)
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/@/)
-    |> validate_length(:passwd, min: 5)
-    |> validate_length(:passwd_confirmation, min: 5)
+    |> validate_length(:passwd, min: 8)
     |> validate_confirmation(:passwd, message: "does not match password")
   end
 end
