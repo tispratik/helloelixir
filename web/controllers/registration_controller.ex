@@ -1,6 +1,5 @@
 defmodule Myapp.RegistrationController do
   use Myapp.Web, :controller
-  alias Myapp.User
 
   # plug :scrub_params, "user" when action in [:create]
 

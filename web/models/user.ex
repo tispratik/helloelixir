@@ -6,11 +6,12 @@ defmodule Myapp.User do
     field :email, :string
     field :crypted_passwd, :string
     field :passwd, :string, virtual: true
+    field :passwd_confirmation, :string, virtual: true
 
     timestamps
   end
 
-  @required_fields ~w(email passwd)
+  @required_fields ~w(email passwd passwd_confirmation)
   @optional_fields ~w()
 
   @doc """
@@ -25,5 +26,7 @@ defmodule Myapp.User do
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:passwd, min: 5)
+    |> validate_length(:passwd_confirmation, min: 5)
+    |> validate_confirmation(:passwd, message: "does not match password")
   end
 end

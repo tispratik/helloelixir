@@ -30,6 +30,8 @@ defmodule Myapp.Web do
       use Phoenix.Controller
 
       alias Myapp.Repo
+      alias Myapp.User
+      alias Myapp.Org
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
