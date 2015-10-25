@@ -1,0 +1,46 @@
+<h2>Listing orgs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Domain</th>
+      <th>License</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Phone1</th>
+      <th>Phone2</th>
+      <th>Fax</th>
+      <th>Facebook url</th>
+      <th>Twitter handle</th>
+      <th>Yelp url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for org <- @orgs do %>
+    <tr>
+      <td><%= org.name %></td>
+      <td><%= org.domain %></td>
+      <td><%= org.license %></td>
+      <td><%= org.address %></td>
+      <td><%= org.email %></td>
+      <td><%= org.phone1 %></td>
+      <td><%= org.phone2 %></td>
+      <td><%= org.fax %></td>
+      <td><%= org.facebook_url %></td>
+      <td><%= org.twitter_handle %></td>
+      <td><%= org.yelp_url %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: org_path(@conn, :show, org), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: org_path(@conn, :edit, org), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: org_path(@conn, :delete, org), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New org", to: org_path(@conn, :new) %>

@@ -19,6 +19,7 @@ defmodule Myapp.Router do
     get "/", PageController, :index
 
     resources "/posts", PostController
+    resources "/orgs", OrgController
 
     get  "/register", RegistrationController, :new
     post "/register", RegistrationController, :create

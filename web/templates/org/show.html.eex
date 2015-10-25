@@ -1,0 +1,63 @@
+<h2>Show org</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @org.name %>
+  </li>
+
+  <li>
+    <strong>Domain:</strong>
+    <%= @org.domain %>
+  </li>
+
+  <li>
+    <strong>License:</strong>
+    <%= @org.license %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @org.address %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @org.email %>
+  </li>
+
+  <li>
+    <strong>Phone1:</strong>
+    <%= @org.phone1 %>
+  </li>
+
+  <li>
+    <strong>Phone2:</strong>
+    <%= @org.phone2 %>
+  </li>
+
+  <li>
+    <strong>Fax:</strong>
+    <%= @org.fax %>
+  </li>
+
+  <li>
+    <strong>Facebook url:</strong>
+    <%= @org.facebook_url %>
+  </li>
+
+  <li>
+    <strong>Twitter handle:</strong>
+    <%= @org.twitter_handle %>
+  </li>
+
+  <li>
+    <strong>Yelp url:</strong>
+    <%= @org.yelp_url %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: org_path(@conn, :edit, @org) %>
+<%= link "Back", to: org_path(@conn, :index) %>

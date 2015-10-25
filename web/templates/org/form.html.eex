@@ -1,0 +1,71 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, "Name", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :domain, "Domain", class: "control-label" %>
+    <%= text_input f, :domain, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :license, "License", class: "control-label" %>
+    <%= text_input f, :license, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :address, "Address", class: "control-label" %>
+    <%= text_input f, :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :email, "Email", class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :phone1, "Phone1", class: "control-label" %>
+    <%= text_input f, :phone1, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :phone2, "Phone2", class: "control-label" %>
+    <%= text_input f, :phone2, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fax, "Fax", class: "control-label" %>
+    <%= text_input f, :fax, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :facebook_url, "Facebook url", class: "control-label" %>
+    <%= text_input f, :facebook_url, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :twitter_handle, "Twitter handle", class: "control-label" %>
+    <%= text_input f, :twitter_handle, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :yelp_url, "Yelp url", class: "control-label" %>
+    <%= text_input f, :yelp_url, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
