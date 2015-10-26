@@ -13,13 +13,13 @@
 Myapp.Repo.insert!(%Myapp.User{
   name: "Pratik Khadloya",
   email: "tispratik@gmail.com",
-  crypted_passwd: Comeonin.Bcrypt.hashpwsalt("pratik")
+  passwd: "pratik"
 })
 
 Myapp.Repo.insert!(%Myapp.User{
   name: "Vinti Maheshwari",
   email: "vinti.uiet@gmail.com",
-  crypted_passwd: Comeonin.Bcrypt.hashpwsalt("vinti")
+  passwd: "pratik"
 })
 
 Myapp.Repo.insert!(%Myapp.Org{
