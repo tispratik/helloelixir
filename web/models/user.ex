@@ -27,5 +27,6 @@ defmodule Myapp.User do
     |> validate_format(:email, ~r/@/)
     |> validate_length(:passwd, min: 8)
     |> validate_confirmation(:passwd, message: "does not match password")
+    |> validate_format(:email, ~r/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/)
   end
 end
